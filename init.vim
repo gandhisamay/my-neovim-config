@@ -1,6 +1,10 @@
-:set number
-:set autoindent
-:set mouse=a
+set number
+set relativenumber
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set softtabstop=4
 
 call plug#begin()
 
@@ -8,13 +12,14 @@ Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/preservim/nerdtree'
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/tpope/vim-commentary'
-Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 Plug 'https://github.com/terryma/vim-multiple-cursors'
 Plug 'https://github.com/neoclide/coc.nvim' 
 Plug 'navarasu/onedark.nvim'
 Plug 'mhinz/vim-startify'
+Plug 'voldikss/vim-floaterm'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 call plug#end()
 
@@ -173,4 +178,21 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-:set t_RV=
+set t_RV=
+" Map the escape key to Ctrl-E for easier and quicker change
+imap <c-e> <Esc>
+
+"Save on CTRL-S
+nmap <c-s> :w<CR> 
+imap <c-s> <Esc>:w<CR>
+
+"Float term key bindings
+nnoremap <C-f> :FloatermNew fff<CR>
+nnoremap <C-t> :FloatermToggle<CR>
+nnoremap <C-1> :FloatermNext<CR>
+nnoremap <C-2> :FloatermPrev<CR>
+
+set autowrite 
+" nnoremap <C-c> :!g++ -std=c++14 % -Wall -g -o %.out && ./%.out < input.txt<CR>
+nnoremap <C-c> :FloatermNew --autoclose=0 g++ % -o %< && ./%< < input.txt<CR>
+
