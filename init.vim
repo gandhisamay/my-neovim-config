@@ -12,15 +12,18 @@ Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/preservim/nerdtree'
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/tpope/vim-commentary'
-Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 Plug 'https://github.com/terryma/vim-multiple-cursors'
 Plug 'https://github.com/neoclide/coc.nvim' 
-Plug 'navarasu/onedark.nvim'
-Plug 'mhinz/vim-startify'
 Plug 'voldikss/vim-floaterm'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-
+Plug 'navarasu/onedark.nvim'
+Plug 'mhinz/vim-startify'
+" Dart Plugins
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
 call plug#end()
 
 let g:onedark_config = {
@@ -186,11 +189,8 @@ imap <c-e> <Esc>
 nmap <c-s> :w<CR> 
 imap <c-s> <Esc>:w<CR>
 
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-
+nnoremap <C-f> :NERDTreeFocus<CR>
 "Float term key bindings
 "I have commented this floating terminal key bindings because nerd tree works
 "fine now for creating of new files and float term will be used only for the
@@ -200,7 +200,44 @@ nnoremap <C-f> :NERDTreeFind<CR>
 " nnoremap <C-1> :FloatermNext<CR>
 " nnoremap <C-2> :FloatermPrev<CR>
 
+"Command T key bindings
+nnoremap <C-p> :CommandT<CR>
 set autowrite 
 " nnoremap <C-c> :!g++ -std=c++14 % -Wall -g -o %.out && ./%.out < input.txt<CR>
 nnoremap <C-c> :FloatermNew --autoclose=0 g++ % -o %< && ./%< < input.txt<CR>
 
+"Dart Config
+let dart_html_in_string=v:true
+let g:dart_style_guide = 2
+let g:dart_format_on_save = 1
+let g:dart_trailing_comma_indent = v:true
+
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
