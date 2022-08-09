@@ -186,11 +186,19 @@ imap <c-e> <Esc>
 nmap <c-s> :w<CR> 
 imap <c-s> <Esc>:w<CR>
 
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
 "Float term key bindings
-nnoremap <C-f> :FloatermNew fff<CR>
-nnoremap <C-t> :FloatermToggle<CR>
-nnoremap <C-1> :FloatermNext<CR>
-nnoremap <C-2> :FloatermPrev<CR>
+"I have commented this floating terminal key bindings because nerd tree works
+"fine now for creating of new files and float term will be used only for the
+"purpose of compiling the running the C++ code.
+" nnoremap <C-f> :FloatermNew fff<CR>
+" nnoremap <C-t> :FloatermToggle<CR>
+" nnoremap <C-1> :FloatermNext<CR>
+" nnoremap <C-2> :FloatermPrev<CR>
 
 set autowrite 
 " nnoremap <C-c> :!g++ -std=c++14 % -Wall -g -o %.out && ./%.out < input.txt<CR>
