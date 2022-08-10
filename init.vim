@@ -19,6 +19,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'navarasu/onedark.nvim'
 Plug 'mhinz/vim-startify'
+Plug 'ctrlpvim/ctrlp.vim'
 " Dart Plugins
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
