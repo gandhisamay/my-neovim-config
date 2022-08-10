@@ -20,11 +20,12 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'navarasu/onedark.nvim'
 Plug 'mhinz/vim-startify'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
 " Dart Plugins
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
-Plug 'natebosch/vim-lsc'
-Plug 'natebosch/vim-lsc-dart'
+" Plug 'natebosch/vim-lsc'
+ " Plug 'natebosch/vim-lsc-dart'
 call plug#end()
 
 let g:onedark_config = {
@@ -242,3 +243,5 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+
+
