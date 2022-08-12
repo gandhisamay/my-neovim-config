@@ -8,19 +8,23 @@ set softtabstop=4
 
 call plug#begin()
 
-Plug 'https://github.com/vim-airline/vim-airline'
-Plug 'https://github.com/preservim/nerdtree'
-Plug 'https://github.com/tpope/vim-surround'
-Plug 'https://github.com/tpope/vim-commentary'
-Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
-Plug 'https://github.com/terryma/vim-multiple-cursors'
-Plug 'https://github.com/neoclide/coc.nvim' 
+Plug 'vim-airline/vim-airline'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'preservim/tagbar' " Tagbar for code navigation
+Plug 'terryma/vim-multiple-cursors'
+Plug 'neoclide/coc.nvim' 
 Plug 'voldikss/vim-floaterm'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'navarasu/onedark.nvim'
 Plug 'mhinz/vim-startify'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'Pocco81/auto-save.nvim'
+" Plug 'goolord/alpha-nvim'
 " Dart Plugins
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
@@ -201,17 +205,12 @@ nnoremap <C-f> :NERDTreeFocus<CR>
 " nnoremap <C-t> :FloatermToggle<CR>
 " nnoremap <C-1> :FloatermNext<CR>
 " nnoremap <C-2> :FloatermPrev<CR>
-
-"Command T key bindings
-nnoremap <C-p> :CommandT<CR>
-set autowrite 
 " nnoremap <C-c> :!g++ -std=c++14 % -Wall -g -o %.out && ./%.out < input.txt<CR>
 nnoremap <C-c> :FloatermNew --autoclose=0 g++ % -o %< && ./%< < input.txt<CR>
 
 "Dart Config
 let dart_html_in_string=v:true
 let g:dart_style_guide = 2
-let g:dart_format_on_save = 1
 let g:dart_trailing_comma_indent = v:true
 
 " air-line
@@ -244,4 +243,16 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
+"Switch between the windows
+nnoremap <C-H> <C-W>h
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
 
+"Vim Flutter bindings"
+nmap <leader> \ 
+nnoremap <leader>fa :FlutterRun<cr>
+nnoremap <leader>fq :FlutterQuit<cr>
+nnoremap <leader>fr :FlutterHotReload<cr>
+nnoremap <leader>fR :FlutterHotRestart<cr>
+nnoremap <leader>fD :FlutterVisualDebug<cr>
