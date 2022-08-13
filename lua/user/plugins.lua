@@ -116,11 +116,12 @@ return packer.startup(function(use)
   }
   
   use "vim-airline/vim-airline"
-  use "tpope/vim-fugitive"
+  use "tpope/vim-fugitive"   
 
   -- Dart config
   use "dart-lang/dart-vim-plugin"
   use "thosakwe/vim-flutter"
+  use "neoclide/coc.nvim"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
