@@ -87,7 +87,7 @@ return packer.startup(function(use)
     'goolord/alpha-nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = function ()
-        require'alpha'.setup(require'alpha.themes.dashboard'.config)
+        require'alpha'.setup(require'alpha.themes.startify'.config)
     end
   }
 
@@ -117,6 +117,10 @@ return packer.startup(function(use)
   
   use "vim-airline/vim-airline"
   use "tpope/vim-fugitive"
+
+  -- Dart config
+  use "dart-lang/dart-vim-plugin"
+  use "thosakwe/vim-flutter"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
