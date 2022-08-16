@@ -62,3 +62,6 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+
+-- C++ saving and compiling and running the code key bindings;
+keymap("i", "<C-b>", "<ESC> :w <CR> :!g++ % && ./a.out < input.txt", opts)
