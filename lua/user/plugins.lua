@@ -122,8 +122,7 @@ return packer.startup(function(use)
   use "tpope/vim-fugitive"   
 
   -- Dart config
-  use "dart-lang/dart-vim-plugin"
-  use "thosakwe/vim-flutter"
+  use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

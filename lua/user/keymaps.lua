@@ -19,6 +19,7 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 -- Normal --
+keymap("i", "<C-s>", "<ESC>:w<CR>", opts)
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -26,6 +27,10 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
+
+-- Swapping the  window splits
+keymap("n", "<leader>th", "<C-w>t<C-w>H", opts)
+keymap("n", "<leader>tk", "<C-w>t<C-w>K", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -65,3 +70,10 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- C++ saving and compiling and running the code key bindings;
 keymap("i", "<C-b>", "<ESC> :w <CR> :!g++ % && ./a.out < input.txt", opts)
+
+-- Dart  key bindings
+keymap("n", "gl", "<Cmd>lua vim.diagnostic.open_float()<CR>", opts)
+keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
+keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+keymap("n", "<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+keymap("x", "<leader>ca", "<Cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
