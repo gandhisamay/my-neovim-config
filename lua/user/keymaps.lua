@@ -20,6 +20,7 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 keymap("i", "<C-s>", "<ESC>:w<CR>", opts)
+keymap("n", "<C-s>", ":w<CR>", opts)
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -50,8 +51,8 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
+keymap("v", "<m-j>", ":m .+1<CR>==", opts)
+keymap("v", "<m-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
@@ -77,3 +78,4 @@ keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
 keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
 keymap("n", "<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 keymap("x", "<leader>ca", "<Cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
+keymap("i", "F", "<Cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)

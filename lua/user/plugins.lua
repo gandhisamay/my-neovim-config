@@ -117,12 +117,13 @@ return packer.startup(function(use)
     "windwp/nvim-autopairs",
       config = function() require("nvim-autopairs").setup {} end
   }
-  
-  use "vim-airline/vim-airline"
+  use 'nvim-lualine/lualine.nvim'
+  use 'lewis6991/impatient.nvim'
   use "tpope/vim-fugitive"   
-
+  use  "ahmedkhalf/project.nvim"
   -- Dart config
   use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
+  use "jose-elias-alvarez/null-ls.nvim"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
