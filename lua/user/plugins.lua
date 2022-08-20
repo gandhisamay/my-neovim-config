@@ -41,7 +41,7 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here
-    -- My plugins here
+  -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
@@ -71,20 +71,20 @@ return packer.startup(function(use)
   use "LunarVim/Colorschemes"
   use {
     "lewis6991/gitsigns.nvim",
-      config = function()
-        require('gitsigns').setup()
-      end
+    config = function()
+      require('gitsigns').setup()
+    end
   }
 
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
-  -- or                            , branch = '0.1.x',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    -- or                            , branch = '0.1.x',
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
   use {
     "akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
-    require("toggleterm").setup()
+      require("toggleterm").setup()
     end
   }
 
@@ -92,15 +92,12 @@ return packer.startup(function(use)
   use {
     'goolord/alpha-nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
-    config = function ()
-        require'alpha'.setup(require'alpha.themes.startify'.config)
+    config = function()
+      require 'alpha'.setup(require 'alpha.themes.startify'.config)
     end
   }
 
-  use {
-    'kyazdani42/nvim-tree.lua'
-  }
-  
+  use 'kyazdani42/nvim-tree.lua'
   use {
     'nvim-treesitter/nvim-treesitter',
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
@@ -109,21 +106,22 @@ return packer.startup(function(use)
   use {
     'numToStr/Comment.nvim',
     config = function()
-        require('Comment').setup()
+      require('Comment').setup()
     end
   }
-  
+
   use {
     "windwp/nvim-autopairs",
-      config = function() require("nvim-autopairs").setup {} end
+    config = function() require("nvim-autopairs").setup {} end
   }
   use 'nvim-lualine/lualine.nvim'
   use 'lewis6991/impatient.nvim'
-  use "tpope/vim-fugitive"   
-  use  "ahmedkhalf/project.nvim"
+  use "tpope/vim-fugitive"
+  use "ahmedkhalf/project.nvim"
   -- Dart config
-  use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
+  use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
   use "jose-elias-alvarez/null-ls.nvim"
+  use 'notjedi/nvim-rooter.lua'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

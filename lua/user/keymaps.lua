@@ -44,7 +44,7 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Insert --
-keymap("i", "<leader>j", "<ESC>", opts)
+keymap("i", "<leader>jj", "<ESC>", opts)
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
@@ -70,7 +70,7 @@ keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- C++ saving and compiling and running the code key bindings;
-keymap("i", "<C-b>", "<ESC> :w <CR> :!g++ % && ./a.out < input.txt", opts)
+keymap("i", "<C-b>", "<ESC> :w <CR> :!g++ % && %:p:h/a.out < %:p:h/input.txt", opts)
 
 -- Dart  key bindings
 keymap("n", "gl", "<Cmd>lua vim.diagnostic.open_float()<CR>", opts)
@@ -79,3 +79,7 @@ keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
 keymap("n", "<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 keymap("x", "<leader>ca", "<Cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
 keymap("i", "F", "<Cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
+
+-- Git key bindings
+keymap("n", "ga", "<Cmd>Git add .<CR>",opts)
+keymap("n", "gc", "<Cmd>Git commit<CR>",opts)
