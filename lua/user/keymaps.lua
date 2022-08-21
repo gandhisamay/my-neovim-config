@@ -78,8 +78,8 @@ keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
 keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
 keymap("n", "<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 keymap("x", "<leader>ca", "<Cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
-keymap("i", "F", "<Cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
+keymap("n", "F", "<Cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
 
 -- Git key bindings
-keymap("n", "ga", "<Cmd>Git add .<CR>",opts)
-keymap("n", "gc", "<Cmd>Git commit<CR>",opts)
+keymap("n", "<leader>ga", ":Git add .<CR>",opts)
+keymap("n", "<leader>gc", ":Git commit<CR>",opts)

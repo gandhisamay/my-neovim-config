@@ -122,6 +122,10 @@ return packer.startup(function(use)
   use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
   use "jose-elias-alvarez/null-ls.nvim"
   use 'notjedi/nvim-rooter.lua'
+  use {
+    'xeluxee/competitest.nvim',
+    requires = 'MunifTanjim/nui.nvim',
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
