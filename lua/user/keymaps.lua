@@ -73,12 +73,12 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 -- keymap("i", "<C-b>", "<ESC> :w <CR> :!g++ % && %:p:h/a.out < %:p:h/input.txt", opts)
 
 -- Dart  key bindings
-keymap( "n", "gl", "<Cmd>lua vim.diagnostic.open_float()<CR>", opts)
-keymap( "n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-keymap( "n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-keymap( "n", "<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-keymap( "x", "<leader>ca", "<Cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
-keymap( "n", "F", "<Cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
+-- keymap( "n", "gl", "<Cmd>lua vim.diagnostic.open_float()<CR>", opts)
+-- keymap( "n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
+-- keymap( "n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+-- keymap( "n", "<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+-- keymap( "x", "<leader>ca", "<Cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
+-- keymap( "n", "F", "<Cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
 
 -- Git key bindings
 keymap("n", "<leader>ga", ":Git add .<CR>",opts)
