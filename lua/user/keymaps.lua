@@ -4,7 +4,7 @@ local term_opts = { silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
-
+-- local bufkeymap = vim.api.nvim_buf_set_keymap
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
@@ -70,16 +70,23 @@ keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- C++ saving and compiling and running the code key bindings;
-keymap("i", "<C-b>", "<ESC> :w <CR> :!g++ % && %:p:h/a.out < %:p:h/input.txt", opts)
+-- keymap("i", "<C-b>", "<ESC> :w <CR> :!g++ % && %:p:h/a.out < %:p:h/input.txt", opts)
 
 -- Dart  key bindings
-keymap("n", "gl", "<Cmd>lua vim.diagnostic.open_float()<CR>", opts)
-keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-keymap("n", "<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-keymap("x", "<leader>ca", "<Cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
-keymap("n", "F", "<Cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
+keymap( "n", "gl", "<Cmd>lua vim.diagnostic.open_float()<CR>", opts)
+keymap( "n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
+keymap( "n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+keymap( "n", "<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+keymap( "x", "<leader>ca", "<Cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
+keymap( "n", "F", "<Cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
 
 -- Git key bindings
 keymap("n", "<leader>ga", ":Git add .<CR>",opts)
 keymap("n", "<leader>gc", ":Git commit<CR>",opts)
+
+-- Compititest key bindings setup
+keymap("i", "<C-b>", "<Esc><Cmd>CompetiTestRun<CR>", opts)
+keymap("n", "<C-b>", "<Esc><Cmd>CompetiTestRun<CR>", opts)
+keymap("i", "<C-b>n", "<Esc><Cmd>CompetiTestRunNC<CR>", opts)
+keymap("n", "<C-b>n", "<Esc><Cmd>CompetiTestRunNC<CR>", opts)
+keymap("n", "R","<Cmd>CompetiTestReceive<CR>", opts)

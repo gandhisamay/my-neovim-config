@@ -94,7 +94,7 @@ return packer.startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = function()
       require 'alpha'.setup(require 'alpha.themes.startify'.config)
-    end
+    end,
   }
 
   use 'kyazdani42/nvim-tree.lua'
