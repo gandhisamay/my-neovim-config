@@ -26,7 +26,6 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
-
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
 -- Swapping the  window splits
@@ -44,7 +43,7 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Insert --
-keymap("i", "<leader>jj", "<ESC>", opts)
+keymap("i", "<leader>/", "<ESC>", opts)
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
@@ -94,3 +93,9 @@ keymap("n", "<C-e>", "<Esc><Cmd>CompetiTestEdit<CR>", opts)
 keymap("i", "<C-d>", "<Esc><Cmd>CompetiTestDelete<CR>", opts)
 keymap("n", "<C-d>", "<Esc><Cmd>CompetiTestDelete<CR>", opts)
 keymap("n", "R","<Cmd>CompetiTestReceive<CR>", opts)
+
+--cpbooster key bindings
+keymap("i", "<leader>cb", "<Esc>:!cpb test %<CR>", opts)
+keymap("n", "<leader>cb", ":!cpb test %<CR>", opts)
+keymap("i", "<leader>ct", "<Esc>:!cpb submit %<CR>", opts)
+keymap("n", "<leader>ct", ":!cpb submit %<CR>", opts)

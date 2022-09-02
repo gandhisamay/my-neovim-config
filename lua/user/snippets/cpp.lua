@@ -17,6 +17,7 @@ local cppBoilerplate = s('bits', fmt([[
 #include<bits/stdc++.h>
 using namespace std;
 
+typedef long long ll;
 #define endl "\n";
 
 void solve(){{
