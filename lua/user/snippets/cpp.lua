@@ -17,8 +17,14 @@ local cppBoilerplate = s('bits', fmt([[
 #include<bits/stdc++.h>
 using namespace std;
 
-typedef long long ll;
+#define sfor(i, l, r) for (int i = l; i < r; ++i)
+#define bfor(i, r, l) for (int i = r; i >= l; --i)
 #define endl "\n";
+#define all(a) a.begin(), a.end()
+using ll = long long;
+using vi = vector<int>;
+using ld = long double;
+using pii = pair<int, int>;
 
 void solve(){{
  {}
@@ -42,21 +48,54 @@ int main(){{
 }))
 
 local spf = s('spf', fmt([[
-vector<int> spf(int n) {{
-  vector<int> spf(n + 1, -1);
+class SPF {{
+public:
+  vector<bool> isPrime;
+  vector<int> hpf;
+  vector<int> lpf;
+  int N;
+  SPF(int N){{
+    this->N = N;
+    isPrime.resize(N + 1, true);
+    hpf.resize(N + 1);
+    lpf.resize(N + 1, 0);
 
-  for (int i = 2; i <= n; i++) {{
-    if (spf[i] == -1) {{
-      for (int j = 2 * i; j <= n; j += i)
-        spf[j] = i;
+    isPrime[0] = false;
+    isPrime[1] = false;
+
+    for (int i = 2; i <= N; i++) {{
+      if (isPrime[i]) {{
+        lpf[i] = hpf[i] = i;
+        for (int j = 2 * i; j <= N; j += i) {{
+          isPrime[j] = false;
+          hpf[j] = i;
+          if (lpf[j] == 0)
+            lpf[j] = i;
+        }}
+      }}
     }}
+  }};
+}};
+]], {}))
+
+local binexp = s('binexp', fmt([[ 
+ll binexp(int a, int b) {{
+  ll res = 1;
+  ll pow = a;
+  while (b) {{
+    if (b & 1) {{
+      res *= pow;
+    }}
+    pow *= pow;
+    b >>= 1;
   }}
-  return spf;
+
+  return res;
 }}
 ]], {}))
 
-
 table.insert(snippets, cppBoilerplate)
 table.insert(snippets, spf);
+table.insert(snippets, binexp)
 
 return snippets, autosnippets

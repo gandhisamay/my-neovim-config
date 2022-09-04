@@ -69,7 +69,7 @@ keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- C++ saving and compiling and running the code key bindings;
--- keymap("i", "<C-b>", "<ESC> :w <CR> :!g++ % && %:p:h/a.out < %:p:h/input.txt", opts)
+-- keymap("i", "<C-g>", "<ESC> :w <CR> :!g++ % && %:p:h/a.out < %:p:h/input.txt", opts)
 
 -- Dart  key bindings
 -- keymap( "n", "gl", "<Cmd>lua vim.diagnostic.open_float()<CR>", opts)
@@ -99,3 +99,6 @@ keymap("i", "<leader>cb", "<Esc>:!cpb test %<CR>", opts)
 keymap("n", "<leader>cb", ":!cpb test %<CR>", opts)
 keymap("i", "<leader>ct", "<Esc>:!cpb submit %<CR>", opts)
 keymap("n", "<leader>ct", ":!cpb submit %<CR>", opts)
+keymap("n", "<leader>cn", ":!cpb clone<CR>", opts)
+
+-- Generate the compititest testcase version from the cpbooster case
