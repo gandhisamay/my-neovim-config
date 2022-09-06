@@ -43,6 +43,7 @@ int main(){{
 
     return 0;
 }}
+
 ]], {
   i(1, "")
 }))
@@ -76,6 +77,7 @@ public:
     }}
   }};
 }};
+
 ]], {}))
 
 local binexp = s('binexp', fmt([[ 
@@ -92,10 +94,37 @@ ll binexp(int a, int b) {{
 
   return res;
 }}
+
+]], {}))
+
+local dsu = s('dsu', fmt([[ 
+int findSet(int i, vector<int> &parent) {{
+  if (parent[i] == -1)
+    return i;
+  return parent[i] = findSet(parent[i], parent);
+}}
+
+void unionSet(int i, int k, vector<int>& parent, vector<int>& rank){{
+  int s1 = findSet(i, parent);
+  int s2 = findSet(k, parent);
+
+  if(s1 != s2){{
+    if(rank[i] < rank[k]){{
+      parent[i] = k;
+      rank[k] += rank[i];
+    }}
+    else{{
+      parent[k] = i;
+      rank[i] += rank[k];
+    }}
+  }}
+}}
+
 ]], {}))
 
 table.insert(snippets, cppBoilerplate)
 table.insert(snippets, spf);
 table.insert(snippets, binexp)
+table.insert(snippets, dsu)
 
 return snippets, autosnippets
