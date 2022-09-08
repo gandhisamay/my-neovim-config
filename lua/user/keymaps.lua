@@ -102,3 +102,5 @@ keymap("n", "<leader>ct", ":!cpb submit %<CR>", opts)
 keymap("n", "<leader>cn", ":!cpb clone<CR>", opts)
 
 -- Generate the compititest testcase version from the cpbooster case
+keymap("n", "<leader>gt", ":<cmd> lua require('user/functions/generate_test_cases).generate_test_cases()<CR>",
+  opts)
