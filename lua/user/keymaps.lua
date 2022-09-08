@@ -80,8 +80,8 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 -- keymap( "n", "F", "<Cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
 
 -- Git key bindings
-keymap("n", "<leader>ga", ":Git add .<CR>",opts)
-keymap("n", "<leader>gc", ":Git commit<CR>",opts)
+keymap("n", "<leader>ga", ":Git add .<CR>", opts)
+keymap("n", "<leader>gc", ":Git commit<CR>", opts)
 
 -- Compititest key bindings setup
 keymap("i", "<C-b>", "<Esc><Cmd>CompetiTestRun<CR>", opts)
@@ -92,7 +92,7 @@ keymap("i", "<C-e>", "<Esc><Cmd>CompetiTestEdit<CR>", opts)
 keymap("n", "<C-e>", "<Esc><Cmd>CompetiTestEdit<CR>", opts)
 keymap("i", "<C-d>", "<Esc><Cmd>CompetiTestDelete<CR>", opts)
 keymap("n", "<C-d>", "<Esc><Cmd>CompetiTestDelete<CR>", opts)
-keymap("n", "R","<Cmd>CompetiTestReceive<CR>", opts)
+keymap("n", "R", "<Cmd>CompetiTestReceive<CR>", opts)
 
 --cpbooster key bindings
 keymap("i", "<leader>cb", "<Esc>:!cpb test %<CR>", opts)
@@ -102,5 +102,5 @@ keymap("n", "<leader>ct", ":!cpb submit %<CR>", opts)
 keymap("n", "<leader>cn", ":!cpb clone<CR>", opts)
 
 -- Generate the compititest testcase version from the cpbooster case
-keymap("n", "<leader>gt", ":<cmd> lua require('user/functions/generate_test_cases).generate_test_cases()<CR>",
+keymap("n", "<leader>gt", "<Cmd>lua require('user.functions.generate_test_cases')()<CR>",
   opts)
