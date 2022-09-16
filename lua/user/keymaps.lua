@@ -18,9 +18,15 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- Copy the entire file using Ctrl - A
+keymap("n", "<C-a>", "<Cmd>%y+<CR>", opts)
+
+-- Toggle autosave
+keymap("n", "<leader>ast", "<Cmd>ASToggle<CR>", opts)
+
 -- Normal --
 keymap("i", "<C-s>", "<ESC>:w<CR>", opts)
-keymap("n", "<C-s>", ":w<CR>", opts)
+keymap("n", "<C-s>", "<Cmd>w<CR>", opts)
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -92,7 +98,7 @@ keymap("i", "<C-e>", "<Esc><Cmd>CompetiTestEdit<CR>", opts)
 keymap("n", "<C-e>", "<Esc><Cmd>CompetiTestEdit<CR>", opts)
 keymap("i", "<C-d>", "<Esc><Cmd>CompetiTestDelete<CR>", opts)
 keymap("n", "<C-d>", "<Esc><Cmd>CompetiTestDelete<CR>", opts)
-keymap("n", "R", "<Cmd>CompetiTestReceive<CR>", opts)
+keymap("n", "<leader>r", "<Cmd>CompetiTestReceive<CR>", opts)
 
 --cpbooster key bindings
 keymap("i", "<leader>cb", "<Esc>:!cpb test %<CR>", opts)
