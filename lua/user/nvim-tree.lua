@@ -2,9 +2,9 @@ local opts = { noremap = true, silent = true }
 
 local keymap = vim.api.nvim_set_keymap
 
-keymap("n", "<C-t>", ":NvimTreeToggle<CR>", opts)
-keymap("n", "<C-f>", ":NvimTreeFocus<CR>", opts)
-keymap("n", "<leader>cf", ":NvimTreeFindFile<CR>", opts)
+keymap("n", "<C-f>", "<Cmd>NvimTreeFocus<CR>", opts)
+keymap("n", "<leader>cf", "<Cmd>NvimTreeFindFile<CR>", opts)
+keymap("n", "<C-q>", "<Cmd>NvimTreeClose<CR>", opts)
 
 require("nvim-tree").setup({
   update_cwd = true,

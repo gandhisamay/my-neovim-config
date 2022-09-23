@@ -1,27 +1,7 @@
 local status_ok, lualine = pcall(require, "lualine")
 if not status_ok then
-  return
+	return
 end
-
-local diagnostics = {
-  "diagnostics",
-  sources = { "nvim_diagnostic" },
-  sections = { "error", "warn" },
-  symbols = { error = " ", warn = " " },
-  colored = false,
-  update_in_insert = false,
-  always_visible = true,
-}
-
--- cool function for progress
--- local progress = function()
--- 	local current_line = vim.fn.line(".")
--- 	local total_lines = vim.fn.line("$")
--- 	local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
--- 	local line_ratio = current_line / total_lines
--- 	local index = math.ceil(line_ratio * #chars)
--- 	return chars[index]
--- end
 
 local colors = {
   blue   = '#80a0ff',
@@ -61,7 +41,7 @@ lualine.setup {
     lualine_a = {
       { 'mode', separator = { left = '' }, right_padding = 2 },
     },
-    lualine_b = { 'filename', diagnostics, 'branch' },
+    lualine_b = { 'filename', 'branch' },
     lualine_c = { 'fileformat' },
     lualine_x = {},
     lualine_y = { 'filetype', 'progress' },
@@ -78,5 +58,4 @@ lualine.setup {
     lualine_z = { 'location' },
   },
   tabline = {},
-  extensions = {},
 }
