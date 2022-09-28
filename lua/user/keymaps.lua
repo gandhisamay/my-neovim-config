@@ -10,6 +10,11 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+
+-- Change the macro recording bind from q to Alt m 
+keymap("n", "<A-m>", "q", opts);
+keymap("n", "q", "<Nop>", opts)
+
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
