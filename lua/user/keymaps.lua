@@ -95,22 +95,19 @@ keymap("n", "<leader>ga", ":Git add .<CR>", opts)
 keymap("n", "<leader>gc", ":Git commit<CR>", opts)
 
 -- Compititest key bindings setup
-keymap("i", "<C-b>", "<Esc><Cmd>CompetiTestRun<CR>", opts)
-keymap("n", "<C-b>", "<Esc><Cmd>CompetiTestRun<CR>", opts)
-keymap("i", "<C-b>n", "<Esc><Cmd>CompetiTestRunNC<CR>", opts)
-keymap("n", "<C-b>n", "<Esc><Cmd>CompetiTestRunNC<CR>", opts)
-keymap("i", "<C-e>", "<Esc><Cmd>CompetiTestEdit<CR>", opts)
-keymap("n", "<C-e>", "<Esc><Cmd>CompetiTestEdit<CR>", opts)
-keymap("i", "<C-d>", "<Esc><Cmd>CompetiTestDelete<CR>", opts)
-keymap("n", "<C-d>", "<Esc><Cmd>CompetiTestDelete<CR>", opts)
+keymap("n", "<leader>b", "<Esc><Cmd>CompetiTestRun<CR>", opts)
+keymap("n", "<leader>bn", "<Esc><Cmd>CompetiTestRunNC<CR>", opts)
+keymap("n", "<leader>e", "<Esc><Cmd>CompetiTestEdit<CR>", opts)
+keymap("n", "<leader>d", "<Esc><Cmd>CompetiTestDelete<CR>", opts)
 keymap("n", "<leader>r", "<Cmd>CompetiTestReceive<CR>", opts)
 
 --cpbooster key bindings
-keymap("i", "<leader>cb", "<Esc>:!cpb test %<CR>", opts)
 keymap("n", "<leader>cb", ":!cpb test %<CR>", opts)
-keymap("i", "<leader>ct", "<Esc>:!cpb submit %<CR>", opts)
 keymap("n", "<leader>ct", ":!cpb submit %<CR>", opts)
 keymap("n", "<leader>cn", ":!cpb clone<CR>", opts)
+
+-- Temporary basis
+keymap("n", "<leader>l", "<Cmd>!pdflatex main.tex<CR><Cmd>!mupdf main.pdf<CR>", opts)
 
 -- Generate the compititest testcase version from the cpbooster case
 keymap("n", "<leader>gt", "<Cmd>lua require('user.functions.generate_test_cases')()<CR>",
