@@ -1,4 +1,5 @@
 local opts = { noremap = true, silent = true }
+local f = require("user.functions.string_interpolation")
 
 local term_opts = { silent = true }
 
@@ -11,7 +12,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 
--- Change the macro recording bind from q to Alt m 
+-- Change the macro recording bind from q to Alt m
 keymap("n", "<A-m>", "q", opts);
 keymap("n", "q", "<Nop>", opts)
 
@@ -34,14 +35,14 @@ keymap("i", "<C-s>", "<ESC>:w<CR>", opts)
 keymap("n", "<C-s>", "<Cmd>w<CR>", opts)
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
 -- Swapping the  window splits
-keymap("n", "<leader>th", "<C-w>t<C-w>H", opts)
 keymap("n", "<leader>tk", "<C-w>t<C-w>K", opts)
+keymap("n", "<leader>th", "<C-w>t<C-w>H", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -67,8 +68,8 @@ keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
@@ -107,8 +108,15 @@ keymap("n", "<leader>ct", ":!cpb submit %<CR>", opts)
 keymap("n", "<leader>cn", ":!cpb clone<CR>", opts)
 
 -- Temporary basis
+-- keymap("n", "<leader>l", f"<Cmd>!pdflatex %<CR><Cmd>!mupdf %:p:h{string.sub(%, 0, string.len(%)-2)}.pdf<CR>", opts)
 keymap("n", "<leader>l", "<Cmd>!pdflatex main.tex<CR><Cmd>!mupdf main.pdf<CR>", opts)
 
 -- Generate the compititest testcase version from the cpbooster case
 keymap("n", "<leader>gt", "<Cmd>lua require('user.functions.generate_test_cases')()<CR>",
   opts)
+
+keymap("n", "<leader>rm", "!npx react-native start", opts)
+keymap("n", "<leader>ra", "!npx react-native run-android", opts)
+
+-- Toggle term keymap
+keymap("n", "<leader>p", "<Cmd>ToggleTerm<CR>", opts)

@@ -98,10 +98,7 @@ return packer.startup(function(use)
   }
 
   use 'kyazdani42/nvim-tree.lua'
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-  }
+  
 
   use {
     'numToStr/Comment.nvim',
@@ -151,6 +148,7 @@ return packer.startup(function(use)
     })
 
   use 'folke/tokyonight.nvim'
+  use("nathom/filetype.nvim")
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
