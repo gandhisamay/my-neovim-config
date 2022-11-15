@@ -113,7 +113,6 @@ return packer.startup(function(use)
   }
   use 'nvim-lualine/lualine.nvim'
   use 'lewis6991/impatient.nvim'
-  use "tpope/vim-fugitive"
   use "ahmedkhalf/project.nvim"
   -- Dart config
   use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
@@ -149,6 +148,14 @@ return packer.startup(function(use)
 
   use 'folke/tokyonight.nvim'
   use("nathom/filetype.nvim")
+
+  use {
+      'nvim-treesitter/nvim-treesitter',
+      run = function()
+          local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+          ts_update()
+      end,
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
