@@ -98,7 +98,6 @@ return packer.startup(function(use)
   }
 
   use 'kyazdani42/nvim-tree.lua'
-  
 
   use {
     'numToStr/Comment.nvim',

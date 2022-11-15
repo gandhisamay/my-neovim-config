@@ -120,3 +120,6 @@ keymap("n", "<leader>ra", "!npx react-native run-android", opts)
 
 -- Toggle term keymap
 keymap("n", "<leader>p", "<Cmd>ToggleTerm<CR>", opts)
+
+--Open telescope projects
+keymap("n", "<leader>tp", "<Cmd>Telescope projects<CR>", opts)
