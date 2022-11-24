@@ -11,7 +11,6 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-
 -- Change the macro recording bind from q to Alt m
 keymap("n", "<A-m>", "q", opts);
 keymap("n", "q", "<Nop>", opts)
@@ -27,8 +26,9 @@ keymap("n", "q", "<Nop>", opts)
 -- Copy the entire file using Ctrl - A
 keymap("n", "<C-a>", "<Cmd>%y+<CR>", opts)
 
+
 -- Toggle autosave
-keymap("n", "<leader>ast", "<Cmd>ASToggle<CR>", opts)
+keymap("n", "<A-s>", "<Cmd>ASToggle<CR>", opts)
 
 -- Normal --
 keymap("i", "<C-s>", "<ESC>:w<CR>", opts)
@@ -50,9 +50,10 @@ keymap("n", "<C-Down>", ":resize -2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
--- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+-- Navigate buffer (Bufferline keybindings)
+keymap("n", "<S-l>", "<Cmd>bnext<CR>", opts)
+keymap("n", "<S-h>", "<Cmd>bprevious<CR>", opts)
+keymap("n", "<S-w>", "<Cmd>bwipeout<CR><Cmd>bnext<CR>", opts)
 
 -- Insert --
 keymap("i", "<leader>/", "<ESC>", opts)
@@ -80,21 +81,6 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
--- C++ saving and compiling and running the code key bindings;
--- keymap("i", "<C-g>", "<ESC> :w <CR> :!g++ % && %:p:h/a.out < %:p:h/input.txt", opts)
-
--- Dart  key bindings
--- keymap( "n", "gl", "<Cmd>lua vim.diagnostic.open_float()<CR>", opts)
--- keymap( "n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
--- keymap( "n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
--- keymap( "n", "<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
--- keymap( "x", "<leader>ca", "<Cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
--- keymap( "n", "F", "<Cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
-
--- Git key bindings
-keymap("n", "<leader>ga", ":Git add .<CR>", opts)
-keymap("n", "<leader>gc", ":Git commit<CR>", opts)
-
 -- Compititest key bindings setup
 keymap("n", "<leader>b", "<Esc><Cmd>CompetiTestRun<CR>", opts)
 keymap("n", "<leader>bn", "<Esc><Cmd>CompetiTestRunNC<CR>", opts)
@@ -107,19 +93,18 @@ keymap("n", "<leader>cb", ":!cpb test %<CR>", opts)
 keymap("n", "<leader>ct", ":!cpb submit %<CR>", opts)
 keymap("n", "<leader>cn", ":!cpb clone<CR>", opts)
 
--- Temporary basis
--- keymap("n", "<leader>l", f"<Cmd>!pdflatex %<CR><Cmd>!mupdf %:p:h{string.sub(%, 0, string.len(%)-2)}.pdf<CR>", opts)
-keymap("n", "<leader>l", "<Cmd>!pdflatex main.tex<CR><Cmd>!mupdf main.pdf<CR>", opts)
-
 -- Generate the compititest testcase version from the cpbooster case
 keymap("n", "<leader>gt", "<Cmd>lua require('user.functions.generate_test_cases')()<CR>",
   opts)
 
-keymap("n", "<leader>rm", "!npx react-native start", opts)
-keymap("n", "<leader>ra", "!npx react-native run-android", opts)
+-- keymap("n", "<leader>rm", "!npx react-native start", opts)
+-- keymap("n", "<leader>ra", "!npx react-native run-android", opts)
 
 -- Toggle term keymap
 keymap("n", "<leader>p", "<Cmd>ToggleTerm<CR>", opts)
 
 --Open telescope projects
 keymap("n", "<leader>tp", "<Cmd>Telescope projects<CR>", opts)
+
+--Format json files 
+keymap("n", "<A-j>", ":%!jq<CR>", opts)

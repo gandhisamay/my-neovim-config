@@ -15,15 +15,14 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
 
--- Use a protected call so we don't error out on first use
+local group = vim.api.nvim_create_augroup("packer_user_config", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePost", {
+	command = "source <afile> | PackerSync",
+	pattern = "plugins.lua", -- the name of your plugins file
+	group = group,
+})-- Use a protected call so we don't error out on first use
+
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
   return
@@ -69,12 +68,7 @@ return packer.startup(function(use)
 
   -- My added plugins here
   use "LunarVim/Colorschemes"
-  use {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require('gitsigns').setup()
-    end
-  }
+  use "lewis6991/gitsigns.nvim"
 
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -124,12 +118,12 @@ return packer.startup(function(use)
   use {
     'rcarriga/nvim-notify',
   }
-  use({
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    config = function()
-      require("lsp_lines").setup()
-    end,
-  })
+  -- use({
+  --   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  --   config = function()
+  --     require("lsp_lines").setup()
+  --   end,
+  -- })
   use 'Pocco81/auto-save.nvim'
   use({
     "kylechui/nvim-surround",
@@ -146,6 +140,7 @@ return packer.startup(function(use)
     })
 
   use 'folke/tokyonight.nvim'
+  use'vimpostor/vim-tpipeline'
   use("nathom/filetype.nvim")
 
   use {
